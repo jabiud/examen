@@ -1,1 +1,22 @@
+create database examen
+
+use examen
+
+CREATE TABLE clientes (
+    id_cliente INTEGER PRIMARY KEY,
+    nombre TEXT,
+    genero TEXT
+);
+
+CREATE TABLE ventas (
+    id_venta INTEGER PRIMARY KEY,
+    id_cliente INTEGER,
+    titulo_libro TEXT,
+    tipo_libro INTEGER,
+    cantidad INTEGER,
+    importe_bruto REAL,
+    monto_descuento REAL,
+    importe_neto REAL,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
 
