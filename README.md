@@ -33,17 +33,17 @@ def registrar_venta():
     conn = sqlite3.connect('lectores.db')
     cursor = conn.cursor()
 
-    # Obtener el precio del libro según el tipo
+  
     cursor.execute('SELECT precio FROM libros WHERE tipo = ?', (tipo_libro,))
     precio_libro = cursor.fetchone()[0]
 
-    # Calcular el descuento
+  
     porcentaje_descuento = calcular_descuento(cantidad_libros, tipo_libro)
 
-    # Calcular el importe neto
+  
     importe_neto = calcular_importe_neto(cantidad_libros, precio_libro, porcentaje_descuento)
 
-    # Insertar la venta en la base de datos
+  
     cursor.execute('''
         INSERT INTO clientes (nombre, genero) VALUES (?, ?)
     ''', (nombre_cliente, genero_cliente))
