@@ -1,7 +1,15 @@
 # examen
-
 import tkinter as tk
 from tkinter import messagebox
+
+libros_data = [
+    ('Ficción', 1, 90.00),
+    ('Novelas', 2, 100.00),
+    ('Cuentos', 3, 80.00),
+    ('Física Cuántica', 4, 150.00),
+    
+]
+cursor.executemany('INSERT INTO libros (titulo, tipo, precio) VALUES (?, ?, ?)', libros_data)
 
 
 def calcular_descuento(cantidad, tipo_libro):
