@@ -2,21 +2,26 @@ create database examen
 
 use examen
 
-CREATE TABLE clientes (
-    id_cliente INTEGER PRIMARY KEY,
-    nombre TEXT,
-    genero TEXT
+CREATE TABLE Clientes (
+    id_cliente INT PRIMARY KEY IDENTITY(1,1),
+    nombre NVARCHAR(255),
+    genero NVARCHAR(50)
 );
-
-CREATE TABLE ventas (
-    id_venta INTEGER PRIMARY KEY,
-    id_cliente INTEGER,
-    titulo_libro TEXT,
-    tipo_libro INTEGER,
-    cantidad INTEGER,
-    importe_bruto REAL,
-    monto_descuento REAL,
-    importe_neto REAL,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+CREATE TABLE Libros (
+    id_libro INT PRIMARY KEY IDENTITY(1,1),
+    titulo NVARCHAR(255),
+    tipo INT,
+    precio DECIMAL(10, 2)
+);
+CREATE TABLE Ventas (
+    id_venta INT PRIMARY KEY IDENTITY(1,1),
+    id_cliente INT,
+    id_libro INT,
+    cantidad INT,
+    importe_bruto DECIMAL(10, 2),
+    monto_descuento DECIMAL(10, 2),
+    importe_neto DECIMAL(10, 2),
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
 );
 
