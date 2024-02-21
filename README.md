@@ -2,7 +2,7 @@
 
 import tkinter as tk
 from tkinter import messagebox
-import sqlite3
+
 
 def calcular_descuento(cantidad, tipo_libro):
     descuentos = {
